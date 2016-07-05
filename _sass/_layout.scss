@@ -2,7 +2,7 @@
  * Site header
  */
 .site-header {
-  border-top: 5px solid $grey-color-dark;
+  border-top: 5px solid rgb(130,65,130);
   border-bottom: 1px solid $grey-color-light;
   min-height: 56px;
 
@@ -99,10 +99,8 @@
   padding: $spacing-unit/2 0;
   background: rgb(66, 66, 66);
   box-shadow: 0 -2px 2px 1px rgba(128, 128, 128, 0.5);
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  position: relative;
+  width: 100%;
 }
 
 .footer-col-wrapper {
@@ -130,6 +128,7 @@
  * Page content
  */
 .page-content {
+  min-height: 66.6%;
   padding: $spacing-unit 0;
 }
 
