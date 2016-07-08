@@ -8,11 +8,17 @@
     {% include header.html %}
 
     <div class="page-content">
-      <div class="wrapper">
-        {{ content }}
-      </div>
-    </div>
 
+      <div class="wrapper">
+        <div class="page-left">
+        {{ content }}
+        </div>
+        <div class="page-right">
+          Content
+        </div>
+      </div>
+
+    </div>
     {% include footer.html %}
 
   </body>
