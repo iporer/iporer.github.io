@@ -11,7 +11,7 @@ email: raohongrui@outlook.com
 description: > # this means to ignore newlines until "baseurl:"
   本站记录我的前端之旅,纪念我逝去的青春.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://iporer.github.io/" # the base hostname & protocol for your site
+url: "https://iporer.github.io" # the base hostname & protocol for your site
 twitter_username: iporer
 github_username: iporer
 facebook_username: iporer
