@@ -2,7 +2,7 @@
  * Site header
  */
 .site-header {
-  border-top: 5px solid rgb(130,65,130);
+  border-top: 5px solid rgb(130, 65, 130);
   border-bottom: 1px solid $grey-color-light;
   min-height: 56px;
 
@@ -40,6 +40,10 @@
     &:not(:last-child) {
       margin-right: 20px;
     }
+  }
+
+  .page-link i {
+    margin-right: 4px;
   }
 
   @include media-query($on-palm) {
