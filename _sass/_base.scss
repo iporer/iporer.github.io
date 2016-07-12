@@ -85,6 +85,7 @@ h1, h2, h3, h4, h5, h6 {
 a {
   color: $brand-color;
   text-decoration: none;
+  cursor: auto;
 
   &:visited {
     color: darken($brand-color, 15%);
@@ -92,7 +93,6 @@ a {
 
   &:hover {
     color: $text-color;
-    text-decoration: underline;
   }
 }
 
