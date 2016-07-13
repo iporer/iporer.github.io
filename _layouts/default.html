@@ -11,7 +11,26 @@
 
       <div class="wrapper">
         <div class="page-left">
-          Content
+          <div id="content">
+            <div>
+              <i class="fa fa-list-ul" aria-hidden="true">&nbsp;Content</i>
+            </div>
+          </div>
+          <div id="recently">
+            <div>
+              <i class="fa fa-edit" aria-hidden="true">&nbsp;Recently Posts</i>
+            </div>
+          </div>
+          <div id="categories">
+            <div>
+              <i class="fa fa-th-list" aria-hidden="true">&nbsp;Categories</i>
+            </div>
+          </div>
+          <div id="tags">
+            <div>
+              <i class="fa fa-tags" aria-hidden="true">&nbsp;Tags</i>
+            </div>
+          </div>
         </div>
         <div class="page-right">
         {{ content }}
@@ -23,7 +42,8 @@
 
     {% include footer.html %}
 
-    <script src="{{'/js/main.js'|prepend:site.baseurl}}"></script>
+    <script src="{{ '/js/main.js' | prepend:site.baseurl }}"></script>
+    <script src="{{ '/js/content.js' | prepend:site.baseurl }}"></script>
   </body>
 
 </html>
