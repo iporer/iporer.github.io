@@ -12,10 +12,11 @@
     if (window.screen.width < 500) { // 针对移动设备
         pageLeft.style.display = "none";
         pageRight.style.width = "100%";
+        return;
     }
     window.onresize = function () {
         content.style.width = pageLeft.offsetWidth - 20 + "px"; // 保持高度不变，20px是padding距离
-        if (document.body.clientWidth < 600) { // 针对移动设备
+        if (document.body.clientWidth < 600) { // 优化窄屏显示
             pageLeft.style.display = "none";
             pageRight.style.width = "100%";
         } else {
