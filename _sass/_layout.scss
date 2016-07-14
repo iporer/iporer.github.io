@@ -171,7 +171,7 @@
 .page-left {
   box-sizing: border-box;
   width: 25%;
-  float: left;
+  float: right;
   padding-right: 20px;
   div {
     background-color: $a-hover-color;
@@ -186,12 +186,16 @@
       word-wrap: break-word;
     }
   }
+  .fixed {
+    position: fixed;
+    top: 30px;
+  }
 }
 
 .page-right {
   box-sizing: border-box;
   width: 75%;
-  float: left;
+  float: right;
   padding: 10px 20px;
 }
 
