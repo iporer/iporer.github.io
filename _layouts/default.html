@@ -30,6 +30,18 @@
             <div>
               <i class="fa fa-th-list" aria-hidden="true">&nbsp;Categories</i>
             </div>
+            <ul>
+              {% for category in site.categories order:ascending %}
+              <li>
+                <a href="{{ root_url }}/{{ site.category_dir }}#{{ category | first }}">
+                            <span>
+                                {{ category | first }}
+                            </span>
+                  <span class="amount">{{ category | last | size }}</span>
+                </a>
+              </li>
+              {% endfor %}
+            </ul>
           </div>
           <div id="tags">
             <div>

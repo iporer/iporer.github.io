@@ -19,9 +19,10 @@ $background-color: #d5d5d5;
 $brand-color:      #2a7ae2;
 
 $a-hover-color:    #fff;
-$a-nav-color:      #828282;
+$a-nav-color:      #808080;
 
-$grey-color:       #828282;
+$grey-color:       #808080;
+$grey-color-lighter: lighten($grey-color, 30%);
 $grey-color-light: lighten($grey-color, 40%);
 $grey-color-dark:  darken($grey-color, 25%);
 

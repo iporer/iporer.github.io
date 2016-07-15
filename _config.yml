@@ -19,3 +19,6 @@ linkedIn_username: iporer
 
 # Build settings
 markdown: kramdown
+
+category_dir: category/
+tag_dir: tag/
