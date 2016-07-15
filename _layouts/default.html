@@ -31,7 +31,9 @@
               <i class="fa fa-th-list" aria-hidden="true">&nbsp;Categories</i>
             </div>
             <ul>
-              {% for category in site.categories order:ascending %}
+              {% assign sortedCat = site.categories | sort: name %}
+
+              {% for category in sortedCat %}
               <li>
                 <a href="{{ root_url }}/{{ site.category_dir }}#{{ category | first }}">
                             <span>

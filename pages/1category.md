@@ -1,16 +1,31 @@
 ---
+
 layout: page
 title: Categories
 permalink: /category
 icon: th-list
+
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](http://jekyllrb.com/)
+* Content
+{:toc}
 
-You can find the source code for the Jekyll new theme at:
-{% include icon-github.html username="jglovier" %} /
-[jekyll-new](https://github.com/jglovier/jekyll-new)
+{% assign sortedCat = site.categories | sort: name %}
 
-You can find the source code for Jekyll at
-{% include icon-github.html username="jekyll" %} /
-[jekyll](https://github.com/jekyll/jekyll)
+{% for category in sortedCat %}
+## {{category | first}}
+
+{% for posts in category %}
+
+{% for post in posts %}
+
+{% if post.url %}
+{{ post.date | date:"%F" }} {{ post.date | date: "%a" }}.
+{{ post.title }}
+{% endif %}
+
+{% endfor %}
+
+{% endfor %}
+
+{% endfor %}
