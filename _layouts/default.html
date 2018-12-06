@@ -83,13 +83,13 @@
       tracking.track('#video', tracker, { camera: true });
 
       tracker.on('track', function(event) {
+        context.clearRect(0, 0, canvas.width, canvas.height);
         if (event.data.length === 0) {
            // No colors were detected in this frame.
           image.src = "";
           return;
         } 
-        context.clearRect(0, 0, canvas.width, canvas.height);
-
+        
         event.data.forEach(function(rect) {
 //           context.strokeStyle = '#a64ceb';
 //           context.strokeRect(rect.x, rect.y, rect.width, rect.height);
