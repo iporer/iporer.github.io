@@ -55,6 +55,7 @@
     <div class="demo-container">
       <video id="video" width="320" height="240" preload autoplay loop muted></video>
       <canvas id="canvas" width="320" height="240"></canvas>
+      <img id="image" src="" alt="tracked image">
     </div>
   </div>
 
@@ -72,6 +73,7 @@
       var video = document.getElementById('video');
       var canvas = document.getElementById('canvas');
       var context = canvas.getContext('2d');
+      var image = document.getElementById('image');
 
       var tracker = new tracking.ObjectTracker('face');
       tracker.setInitialScale(4);
@@ -90,6 +92,11 @@
           context.fillStyle = "#fff";
           context.fillText('x: ' + rect.x + 'px', rect.x + rect.width + 5, rect.y + 11);
           context.fillText('y: ' + rect.y + 'px', rect.x + rect.width + 5, rect.y + 22);
+          
+          context.drawImage(video, rect.x, rect.y, rect.width, rect.height);
+          var snapData = canvas.toDataURL('image/png'),
+          var imgSrc = "data:image/png;" + snapData;
+          image.src = imgSrc;
         });
       });
 
