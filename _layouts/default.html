@@ -80,7 +80,7 @@
       tracker.setStepSize(2);
       tracker.setEdgesDensity(0.1);
 
-      tracking.track('#video', tracker, { camera: true });
+      var trackerTask = tracking.track('#video', tracker, { camera: true });
 
       tracker.on('track', function(event) {
         context.clearRect(0, 0, canvas.width, canvas.height);
@@ -104,6 +104,7 @@
           image.src = imgSrc;
           //context.clearRect(0, 0, canvas.width, canvas.height);
         });
+        trackerTask.stop();
       });
 
       var gui = new dat.GUI();
