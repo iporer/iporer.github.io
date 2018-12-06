@@ -98,7 +98,7 @@
           context.fillText('x: ' + rect.x + 'px', rect.x + rect.width + 5, rect.y + 11);
           context.fillText('y: ' + rect.y + 'px', rect.x + rect.width + 5, rect.y + 22);
           
-          context.drawImage(video, rect.x, rect.y, rect.width, rect.height, rect.x, rect.y, rect.width, rect.height);
+//           context.drawImage(video, rect.x, rect.y, rect.width, rect.height, rect.x, rect.y, rect.width, rect.height);
           var snapData = canvas.toDataURL('image/png');
           var imgSrc = "data:image/png;" + snapData;
           image.src = imgSrc;
