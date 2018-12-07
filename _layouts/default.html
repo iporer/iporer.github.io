@@ -53,7 +53,7 @@
         </div> -->
   <div class="demo-frame">
     <div class="demo-container">
-      <button type="button" id="btnTrack">开始检测</button>
+      <button type="button" id="btnTrack">停止检测</button>
       <video id="video" width="320" height="240" preload autoplay loop muted></video>
 <!--       <canvas id="canvas" width="320" height="240"></canvas> -->
       <img id="image" width="320" height="240" src="" alt="没有检测到人脸">
@@ -132,8 +132,7 @@
           var imgSrc = "data:image/png;" + snapData;
           image.src = imgSrc;
           context.clearRect(0, 0, canvas.width, canvas.height);
-          
-          isTracking = false;
+          btnTrack.click();
         });
         
         
