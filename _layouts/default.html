@@ -53,9 +53,10 @@
         </div> -->
   <div class="demo-frame">
     <div class="demo-container">
+      <button type="button" id="btnTrack">开始检测</button>
       <video id="video" width="320" height="240" preload autoplay loop muted></video>
 <!--       <canvas id="canvas" width="320" height="240"></canvas> -->
-      <img id="image" width="320" height="240" src="" alt="tracked image">
+      <img id="image" width="320" height="240" src="" alt="没有检测到人脸">
     </div>
   </div>
 
@@ -72,11 +73,15 @@
         var _videoWidth = 0;
     var _videoHeight = 0;
     var canvas = null;
+        var isTracking = true;
+        var trackerTask;
     window.onload = function() {
       var video = document.getElementById('video');
       var canvas = document.createElement("canvas");
+      var btnTrack = document.getElementById("btnTrack");
       var context = canvas.getContext('2d');
       var image = document.getElementById('image');
+      
 
       
       var tracker = new tracking.ObjectTracker('face');
@@ -84,7 +89,7 @@
       tracker.setStepSize(2);
       tracker.setEdgesDensity(0.1);
 
-      tracking.track('#video', tracker, { camera: true });
+      trackerTask = tracking.track('#video', tracker, { camera: true });
       
       tracker.on('track', function(event) {
         context.clearRect(0, 0, canvas.width, canvas.height);
@@ -97,8 +102,8 @@
         event.data.forEach(function(rect) {
           canvas.width = _videoWidth = video.videoWidth;
           canvas.height = _videoHeight = video.videoHeight;
-          image.width = _videoWidth/2;
-          image.height = _videoHeight/2;
+          image.width = _videoWidth/3;
+          image.height = _videoHeight/3;
           
           context.strokeStyle = '#a64ceb';
           context.strokeRect(rect.x, rect.y, rect.width, rect.height);
@@ -119,7 +124,11 @@
           var imgSrc = "data:image/png;" + snapData;
           image.src = imgSrc;
           context.clearRect(0, 0, canvas.width, canvas.height);
+          
+          isTracking = false;
         });
+        
+        trackerTask.stop();
       });
 
       var gui = new dat.GUI();
