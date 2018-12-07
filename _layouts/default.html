@@ -101,6 +101,8 @@
           alert("y:"+rect.y);
           alert("w:"+rect.width);
           alert("h:"+rect.height);
+          alert("ww:"+video.width);
+          alert("hh:"+video.height);
           context.drawImage(video, rect.x, rect.y, rect.width, rect.height);
           var snapData = canvas.toDataURL('image/png');
           var imgSrc = "data:image/png;" + snapData;
