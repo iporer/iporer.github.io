@@ -119,6 +119,7 @@
 //           alert("vh:"+video.videoHeight);
           context.drawImage(video, 0, 0, _videoHeight, _videoHeight, 0, 0, _videoHeight, _videoHeight);
           var snapData = canvas.toDataURL('image/png');
+          console.log(snapData);
           var imgSrc = "data:image/png;" + snapData;
           image.src = imgSrc;
           context.clearRect(0, 0, canvas.width, canvas.height);
