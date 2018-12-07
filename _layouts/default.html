@@ -95,8 +95,10 @@
         } 
         
         event.data.forEach(function(rect) {
-          canvas.width = image.width = _videoWidth = video.videoWidth;
-          canvas.height = image.height = _videoHeight = video.videoHeight;
+          canvas.width = _videoWidth = video.videoWidth;
+          canvas.height = _videoHeight = video.videoHeight;
+          image.width = _videoWidth/2;
+          image.height = _videoHeight/2;
           
           context.strokeStyle = '#a64ceb';
           context.strokeRect(rect.x, rect.y, rect.width, rect.height);
