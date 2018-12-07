@@ -103,7 +103,7 @@
 //           alert("h:"+rect.height);
 //           alert("ww:"+video.width);
 //           alert("hh:"+video.height);
-          context.drawImage(video, 0, 0, video.width, video.height);
+          context.drawImage(video, 0, 0, video.width/2, video.height);
           var snapData = canvas.toDataURL('image/png');
           var imgSrc = "data:image/png;" + snapData;
           image.src = imgSrc;
