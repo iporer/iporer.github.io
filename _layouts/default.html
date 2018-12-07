@@ -92,11 +92,12 @@
       btnTrack.addEventListener('click', function () {
         if (isTracking) {
           trackerTask.stop();
-          btnTrack.innerHtml="开始检测";
+          btnTrack.innerHTML ="开始检测";
         } else {
           trackerTask.run();
-          btnTrack.innerHtml="停止检测";
+          btnTrack.innerHTML ="停止检测";
         }
+        isTracking =!isTracking;
       });
       
       tracker.on('track', function(event) {
