@@ -82,7 +82,15 @@
       var context = canvas.getContext('2d');
       var image = document.getElementById('image');
       
-
+      btnTrack.addEventListener('click', function () {
+        if (isTracking) {
+          trackerTask.stop();
+          btnTrack.innerHtml="开始检测";
+        } else {
+          trackerTask.run();
+          btnTrack.innerHtml="停止检测";
+        }
+      })
       
       var tracker = new tracking.ObjectTracker('face');
       tracker.setInitialScale(4);
@@ -130,7 +138,7 @@
         
         
       });
-      trackerTask.stop();
+      
       var gui = new dat.GUI();
       gui.add(tracker, 'edgesDensity', 0.1, 0.5).step(0.01);
       gui.add(tracker, 'initialScale', 1.0, 10.0).step(0.1);
