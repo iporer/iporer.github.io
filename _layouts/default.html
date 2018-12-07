@@ -75,6 +75,7 @@
     var canvas = null;
         var isTracking = true;
         var trackerTask;
+        var startTrack;
     window.onload = function() {
       var video = document.getElementById('video');
       var canvas = document.createElement("canvas");
@@ -100,7 +101,7 @@
         isTracking =!isTracking;
       });
       
-      tracker.once('track', function(event) {
+      startTrack = function(event) {
         context.clearRect(0, 0, canvas.width, canvas.height);
         if (event.data.length === 0) {
            // No colors were detected in this frame.
@@ -137,7 +138,9 @@
         });
         
         trackerTask.stop();
-      });
+      };
+      
+      tracker.on('track', startTrack);
       
       
       
