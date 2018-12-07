@@ -54,7 +54,7 @@
   <div class="demo-frame">
     <div class="demo-container">
       <video id="video" width="320" height="240" preload autoplay loop muted></video>
-      <canvas id="canvas" width="320" height="240"></canvas>
+<!--       <canvas id="canvas" width="320" height="240"></canvas> -->
       <img id="image" width="320" height="240" src="" alt="tracked image">
     </div>
   </div>
@@ -69,19 +69,26 @@
     <script src="{{ '/js/content.js' | prepend:site.baseurl }}"></script> -->
     
       <script>
+        var _videoWidth = 0;
+    var _videoHeight = 0;
+    var canvas = null;
     window.onload = function() {
       var video = document.getElementById('video');
-      var canvas = document.getElementById('canvas');
+      var canvas = document.createElement("canvas");
       var context = canvas.getContext('2d');
       var image = document.getElementById('image');
 
+      
       var tracker = new tracking.ObjectTracker('face');
       tracker.setInitialScale(4);
       tracker.setStepSize(2);
       tracker.setEdgesDensity(0.1);
 
       tracking.track('#video', tracker, { camera: true });
-
+      canvas.width = _videoWidth = video.videoWidth;
+      canvas.height = _videoHeight = video.videoHeight;
+      alert(_videoWidth);
+      alert(_videoHeight);
       tracker.on('track', function(event) {
         context.clearRect(0, 0, canvas.width, canvas.height);
         if (event.data.length === 0) {
@@ -105,7 +112,7 @@
 //           alert("hh:"+video.height);
 //           alert("vw:"+video.videoWidth);
 //           alert("vh:"+video.videoHeight);
-          context.drawImage(video, 0, 0, video.videoWidth, video.videoHeight);
+          context.drawImage(video, 0, 0, _videoHeight, _videoHeight, 0, 0, _videoHeight, _videoHeight);
           var snapData = canvas.toDataURL('image/png');
           var imgSrc = "data:image/png;" + snapData;
           image.src = imgSrc;
