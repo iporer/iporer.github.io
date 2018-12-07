@@ -53,7 +53,7 @@
         </div> -->
   <div class="demo-frame">
     <div class="demo-container">
-      <button type="button" id="btnTrack">停止检测</button>
+      <button type="button" id="btnTrack">开始检测</button>
       <video id="video" width="320" height="240" preload autoplay loop muted></video>
 <!--       <canvas id="canvas" width="320" height="240"></canvas> -->
       <img id="image" width="320" height="240" src="" alt="没有检测到人脸">
@@ -73,7 +73,7 @@
         var _videoWidth = 0;
     var _videoHeight = 0;
     var canvas = null;
-        var isTracking = true;
+        var isTracking = false;
         var trackerTask;
         var startTrack;
     window.onload = function() {
@@ -89,18 +89,6 @@
       tracker.setEdgesDensity(0.1);
 
       trackerTask = tracking.track('#video', tracker, { camera: true });
-      
-      btnTrack.addEventListener('click', function () {
-        if (isTracking) {
-          trackerTask.stop();
-          btnTrack.innerHTML ="开始检测";
-        } else {
-          trackerTask.run();
-          btnTrack.innerHTML ="停止检测";
-        }
-        isTracking =!isTracking;
-      });
-      
       startTrack = function(event) {
         context.clearRect(0, 0, canvas.width, canvas.height);
         if (event.data.length === 0) {
@@ -138,12 +126,27 @@
         });
         
         trackerTask.stop();
-        alert(trackerTask.running_);
+        tracker.removeListener('track', startTrack);       
       };
-      
       tracker.on('track', startTrack);
-      
       trackerTask.stop();
+      
+      btnTrack.addEventListener('click', function () {
+        if (isTracking) {
+          trackerTask.stop();
+          btnTrack.innerHTML ="开始检测";
+          tracker.removeListener('track', startTrack);  
+        } else {
+          trackerTask.run();
+          btnTrack.innerHTML ="停止检测";
+          tracker.on('track', startTrack);
+        }
+        isTracking =!isTracking;
+      });
+      
+      
+      
+      
       
       var gui = new dat.GUI();
       gui.add(tracker, 'edgesDensity', 0.1, 0.5).step(0.01);
