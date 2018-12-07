@@ -125,27 +125,34 @@
           
         });
         
-        trackerTask.stop();
-        tracker.removeListener('track', startTrack);       
+        stopFunc();
       };
       tracker.on('track', startTrack);
-      trackerTask.stop();
+      
+      
       
       btnTrack.addEventListener('click', function () {
         if (isTracking) {
-          trackerTask.stop();
-          btnTrack.innerHTML ="开始检测";
-          tracker.removeListener('track', startTrack);  
+           stopFunc();
         } else {
-          trackerTask.run();
-          btnTrack.innerHTML ="停止检测";
-          tracker.on('track', startTrack);
+          startFunc();
         }
-        isTracking =!isTracking;
       });
       
+      stopFunc = function() {
+        trackerTask.stop();
+          btnTrack.innerHTML ="开始检测";
+          tracker.removeListener('track', startTrack); 
+        isTracking =false;
+      };
+      startFunc = function() {
+        trackerTask.run();
+          btnTrack.innerHTML ="停止检测";
+          tracker.on('track', startTrack);
+        isTracking = true;
+      }
       
-      
+      stopFunc();
       
       
       var gui = new dat.GUI();
