@@ -53,6 +53,8 @@
         </div> -->
   <div class="demo-frame">
     <div class="demo-container">
+      <input type="text" id="username" placeholder="用户名"><br>
+      <input type="text" id="password" placeholder="密码"><br>
       <button type="button" id="btnTrack">开始检测</button>
       <button type="button" id="btnUpload">上传照片</button>
       <video id="video" width="320" height="240" preload autoplay loop muted></video>
@@ -87,6 +89,8 @@
       var context = canvas.getContext('2d');
       var image = document.getElementById('image');
       var image1 = document.getElementById('image1');
+      var username = document.getElementById('username');
+      var password = document.getElementById('password');
       
       var tracker = new tracking.ObjectTracker('face');
       tracker.setInitialScale(4);
@@ -111,6 +115,10 @@
           canvas.height = _videoHeight = video.videoHeight;
           image.width = _videoWidth/3;
           image.height = _videoHeight/3;
+          image1.width = _videoWidth/3;
+          image1.height = _videoHeight/3;
+          console.log("videoWidth:"+canvas.width);
+          console.log("videoHeight:"+canvas.height);
           
           context.strokeStyle = '#a64ceb';
           context.strokeRect(rect.x, rect.y, rect.width, rect.height);
@@ -175,7 +183,7 @@
       upload = function() {
         $.ajax({
              type: "POST",
-             url: "http://47.96.231.229:5000/faceAuth?loginName=18073117056&password="+btoa(encodeURI("hanshuang1987")),
+             url: "http://47.96.231.229:5000/faceAuth?loginName="+username.value+"&password="+btoa(encodeURI(password.value)),
              data: "image1="+encodeURIComponent(image.src.replace("data:image/png;base64,",""))+"&image2="+encodeURIComponent(image1.src.replace("data:image/png;base64,","")),
              dataType: "application/x-www-form-urlencoded",
              success: function(data){
