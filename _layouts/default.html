@@ -188,11 +188,11 @@
              dataType: "application/x-www-form-urlencoded",
              success: function(data){
                          console.log(data);
-                         alert(data);
+                         alert(data.responseText);
                       },
               error:function(data,error) {
                 console.log(data);
-                alert(data);
+                alert(data.responseText);
               }
          });
         var a = document.createElement("a");
