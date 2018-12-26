@@ -57,6 +57,7 @@
       <video id="video" width="320" height="240" preload autoplay loop muted></video>
 <!--       <canvas id="canvas" width="320" height="240"></canvas> -->
       <img id="image" width="320" height="240" src="" alt="没有检测到人脸">
+      <img id="image1" width="320" height="240" src="" alt="没有检测到人脸">
     </div>
   </div>
 
@@ -82,6 +83,7 @@
       var btnTrack = document.getElementById("btnTrack");
       var context = canvas.getContext('2d');
       var image = document.getElementById('image');
+      var image1 = document.getElementById('image1');
       
       var tracker = new tracking.ObjectTracker('face');
       tracker.setInitialScale(4);
@@ -94,6 +96,7 @@
         if (event.data.length === 0) {
            // No colors were detected in this frame.
           image.src = "";
+          image1.src = "";
           return;
         } 
         
@@ -122,6 +125,7 @@
           console.log(snapData);
           var imgSrc = "data:image/png;" + snapData;
           image.src = imgSrc;
+          image1.src = imgSrc;
           context.clearRect(0, 0, canvas.width, canvas.height);
           
         });
