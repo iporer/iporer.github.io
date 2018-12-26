@@ -135,7 +135,7 @@
 //           alert("vw:"+video.videoWidth);
 //           alert("vh:"+video.videoHeight);
           context.drawImage(video, 0, 0, _videoWidth, _videoHeight, 0, 0, _videoWidth, _videoHeight);
-          var snapData = canvas.toDataURL('image/png');
+          var snapData = canvas.toDataURL('image/jpeg',0.6);
 //           console.log(snapData);
           var imgSrc = snapData;
           if (imageIndex == 0) {
