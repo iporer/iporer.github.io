@@ -129,7 +129,7 @@
           context.drawImage(video, 0, 0, _videoHeight, _videoHeight, 0, 0, _videoHeight, _videoHeight);
           var snapData = canvas.toDataURL('image/png');
           console.log(snapData);
-          var imgSrc = "data:image/png;" + snapData;
+          var imgSrc = snapData;
           if (imageIndex == 0) {
             image.src = imgSrc;
           } else {
