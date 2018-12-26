@@ -134,9 +134,9 @@
 //           alert("hh:"+video.height);
 //           alert("vw:"+video.videoWidth);
 //           alert("vh:"+video.videoHeight);
-          context.drawImage(video, 0, 0, _videoHeight, _videoHeight, 0, 0, _videoHeight, _videoHeight);
+          context.drawImage(video, 0, 0, _videoHeight, _videoHeight, 0, 0, canvas.width, canvas.height);
           var snapData = canvas.toDataURL('image/png');
-          console.log(snapData);
+//           console.log(snapData);
           var imgSrc = snapData;
           if (imageIndex == 0) {
             image.src = imgSrc;
