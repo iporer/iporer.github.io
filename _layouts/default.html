@@ -176,7 +176,7 @@
         $.ajax({
              type: "POST",
              url: "http://47.96.231.229:5000/faceAuth?loginName=18073117056&password="+btoa(encodeURI("hanshuang1987")),
-             data: "image1="+encodeURI(image.src)+"&image2="+encodeURI(image1.src),
+             data: "image1="+encodeURI(image.src.replace("data:image/png;base64,",""))+"&image2="+encodeURI(image1.src.replace("data:image/png;base64,","")),
              dataType: "application/x-www-form-urlencoded",
              success: function(data){
                          console.log(data);
